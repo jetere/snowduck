@@ -58,14 +58,14 @@ The scripts share one global scope and load in order. When you add a file, list 
 
 ## Settings
 
-Press **P** to change the look and feel while playing. Your choices are saved in the browser under `starhopper64.settings.v4`.
+Press **P** to change the look and feel while playing. Your choices are saved in the browser under `starhopper64.settings.v5`.
 
 | Setting | Default |
 | --- | --- |
 | Bloom intensity | 0.06 |
 | Glow particles | 2.24 |
 | Saturation | 1.4 |
-| Wobble strength / FPS | 10 / 12 |
+| Wobble strength / FPS | 0.10 / 12 |
 | Wobble noise scale | 35 |
 | Walk animation speed | 1.8 |
 | Aurora brightness / speed | 1.8 / 0.42 |

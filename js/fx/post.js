@@ -1,6 +1,6 @@
 /* Star Hopper 64 - fx/post */
 // ---------- post-processing: squiggle shader (ported from Godot) + ink outlines + impact FX
-const SQ={scale:35,strength:10,fps:12},PR=Math.min(devicePixelRatio,2);
+const SQ={scale:35,strength:.1,fps:12},PR=Math.min(devicePixelRatio,2);
 const rt=new THREE.WebGLRenderTarget(innerWidth*PR,innerHeight*PR,{minFilter:THREE.LinearFilter,magFilter:THREE.LinearFilter,depthTexture:new THREE.DepthTexture(innerWidth*PR,innerHeight*PR,THREE.UnsignedIntType)});
 const nd=new Uint8Array(32*32*4);for(let i=0;i<nd.length;i++)nd[i]=Math.random()*255;
 const nz=new THREE.DataTexture(nd,32,32,THREE.RGBAFormat);nz.wrapS=nz.wrapT=THREE.RepeatWrapping;nz.magFilter=nz.minFilter=THREE.LinearFilter;nz.needsUpdate=true;
