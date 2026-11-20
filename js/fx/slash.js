@@ -1,4 +1,4 @@
-/* Star Hopper 64 - fx/slash */
+/* Snowduck - fx/slash */
 // ---------- toon slash FX (port of the Godot slash shader: polar noise ring, width/length masks, sweeping arc, colour ramp)
 function gtex(w,st,rep){const c=document.createElement('canvas');c.width=w;c.height=1;const x=c.getContext('2d'),g=x.createLinearGradient(0,0,w,0);st.forEach(s=>g.addColorStop(s[0],s[1]));x.fillStyle=g;x.fillRect(0,0,w,1);const t=new THREE.CanvasTexture(c);if(rep)t.wrapS=t.wrapT=THREE.RepeatWrapping;return t}
 const SBN=(()=>{const W=128,c=document.createElement('canvas');c.width=c.height=W;const x=c.getContext('2d'),im=x.createImageData(W,W),L=[];for(let o=0;o<3;o++){const fx=2<<o,fy=10<<o,a=[];for(let i=0;i<fx*fy;i++)a.push(Math.random());L.push([fx,fy,a])}

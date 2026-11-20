@@ -1,4 +1,4 @@
-/* Star Hopper 64 - player/frame */
+/* Snowduck - player/frame */
 function frame(t){requestAnimationFrame(frame);const rdt=Math.min(.05,(t-frame.l||16)/1000);frame.l=t;const dt=rdt*CAM.ts;
  if(started)update(dt);
  OU.time.value=t/1000;slTick(rdt);fxTick(rdt);trailTick(t/1000,rdt);mistTick(t/1000);cloudG.rotation.y+=rdt*.004;

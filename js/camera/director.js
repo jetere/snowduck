@@ -1,4 +1,4 @@
-/* Star Hopper 64 - camera/director */
+/* Snowduck - camera/director */
 // ---------- cinematic camera director
 const CC={dist:9,height:1.5,fov:60,fovSpeed:14,ahead:1,lagXZ:9,lagY:3.5,zoomLag:5,bank:1,shake:1,sens:1,invY:0,keyRot:2,recenter:.3,idle:1,idleDelay:8,shots:1,slowmo:1,bars:1};
 const V3=()=>new THREE.Vector3();

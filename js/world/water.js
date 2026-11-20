@@ -1,4 +1,4 @@
-/* Star Hopper 64 - world/water */
+/* Snowduck - world/water */
 // ---------- toon ocean + waterfalls + rivers (toon-shader style: banded diffuse, toon spec, rim light, shore foam)
 const OU={time:{value:0}},FOGU=()=>THREE.UniformsUtils.clone(THREE.UniformsLib.fog);
 const sd=new Uint8Array(384*384*4);for(let j=0;j<384;j++)for(let i=0;i<384;i++){const k=(j*384+i)*4;sd[k]=Math.round(Math.min(1,Math.max(0,-TH((i/383-.5)*280,(j/383-.5)*280)/4))*255);sd[k+3]=255}

@@ -1,4 +1,4 @@
-/* Star Hopper 64 - fx/impact */
+/* Snowduck - fx/impact */
 
 // ---------- impact FX: shockwave, wobble, squash & stretch, dust
 const FX={imp:0,shk:0,wob:0,flash:0,sq:1,sv:0,v:new THREE.Vector3()};

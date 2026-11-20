@@ -1,4 +1,4 @@
-/* Star Hopper 64 - fx/trail */
+/* Snowduck - fx/trail */
 // ---------- ghost trail (port of CompositorEffectGhostTrail): fading additive after-images driven by velocity
 const TRN=26,TR={on:1,gain:12,len:.21,r:1,g:1,b:1},tH=[];for(let i=0;i<TRN;i++)tH.push({x:0,y:-99,z:0,s:0,t:-9,sx:1,sy:1});
 const tAge=new THREE.InstancedBufferAttribute(new Float32Array(TRN*2).fill(1),1),tGeo=new THREE.SphereGeometry(1,14,10);tGeo.setAttribute('age',tAge);

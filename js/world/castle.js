@@ -1,4 +1,4 @@
-/* Star Hopper 64 - world/castle */
+/* Snowduck - world/castle */
 // ---------- solid boxes (castle, steps, floating platforms)
 const BX=[];
 function box(x,y,z,w,h,d,col,tex,solid=true){const g=new THREE.BoxGeometry(w,h,d),uv=g.attributes.uv,dm=[[d,h],[d,h],[w,d],[w,d],[w,h],[w,h]];

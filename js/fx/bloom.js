@@ -1,4 +1,4 @@
-/* Star Hopper 64 - fx/bloom */
+/* Snowduck - fx/bloom */
 // ---------- bloom: bright-pass -> 4 blurred mip levels -> screen-blended in the post shader
 const bzVS='varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}',
  bzTh={value:.62},bzTex={value:null},bzTx={value:new THREE.Vector2()},bzDir={value:new THREE.Vector2()};

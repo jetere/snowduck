@@ -1,4 +1,4 @@
-/* Star Hopper 64 - fx/post */
+/* Snowduck - fx/post */
 // ---------- post-processing: squiggle shader (ported from Godot) + ink outlines + impact FX
 const SQ={scale:35,strength:.1,fps:12},PR=Math.min(devicePixelRatio,2);
 const rt=new THREE.WebGLRenderTarget(innerWidth*PR,innerHeight*PR,{minFilter:THREE.LinearFilter,magFilter:THREE.LinearFilter,depthTexture:new THREE.DepthTexture(innerWidth*PR,innerHeight*PR,THREE.UnsignedIntType)});

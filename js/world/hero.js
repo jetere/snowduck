@@ -1,4 +1,4 @@
-/* Star Hopper 64 - world/hero */
+/* Snowduck - world/hero */
 // ---------- hero: snowman-duck "Quackman"
 const hero=new THREE.Group(),body=new THREE.Group(),AN={hop:0,tilt:0,dive:0,flap:.1,crouch:0,spd:1};body.position.y=.8;hero.add(body);
 const SPH=new THREE.SphereGeometry(1,16,12),CYL=new THREE.CylinderGeometry(1,1,1,14),

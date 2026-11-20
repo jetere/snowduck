@@ -1,4 +1,4 @@
-/* Star Hopper 64 - world/sky */
+/* Snowduck - world/sky */
 // ---------- aurora sky (ported from Godot sky shader)
 const skyC=document.createElement('canvas');skyC.width=512;skyC.height=256;{const x=skyC.getContext('2d'),g=x.createLinearGradient(0,0,0,256);g.addColorStop(0,'#070b24');g.addColorStop(.35,'#1c2260');g.addColorStop(.47,'#8a4f9c');g.addColorStop(.5,'#ffb27a');g.addColorStop(.53,'#4a3a7a');g.addColorStop(1,'#1a1840');x.fillStyle=g;x.fillRect(0,0,512,256);x.fillStyle='#fff';for(let i=0;i<260;i++){x.globalAlpha=.3+Math.random()*.7;x.fillRect(Math.random()*512,Math.random()*110,Math.random()<.2?2:1,1)}}
 const skyTex=new THREE.CanvasTexture(skyC);skyTex.wrapS=THREE.RepeatWrapping;

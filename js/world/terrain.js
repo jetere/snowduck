@@ -1,4 +1,4 @@
-/* Star Hopper 64 - world/terrain */
+/* Snowduck - world/terrain */
 // ---------- terrain
 const tg=new THREE.PlaneGeometry(280,280,140,140);tg.rotateX(-Math.PI/2);const tp=tg.attributes.position,tc=new Float32Array(tp.count*3);
 for(let i=0;i<tp.count;i++){const x=tp.getX(i),z=tp.getZ(i),y=TH(x,z);tp.setY(i,y);const sl=Math.hypot(TH(x+2,z)-y,TH(x,z+2)-y)/2,ch=((Math.floor(x/5)+Math.floor(z/5))&1)*.07,cw=1-S(15,24,Math.hypot(x,z+6));

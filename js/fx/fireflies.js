@@ -1,4 +1,4 @@
-/* Star Hopper 64 - fx/fireflies */
+/* Snowduck - fx/fireflies */
 // ---------- glow particles: fireflies + pollen drifting over the grass, additive soft sprites that feed the bloom
 const FFN=360,ffPos=new Float32Array(FFN*3),ffSd=new Float32Array(FFN),ffSz=new Float32Array(FFN),ffCol=new Float32Array(FFN*3),ffBase=new Float32Array(FFN*3);
 const ffPal=[[1,.92,.35],[.55,1,.5],[.5,.95,1],[1,.6,.85],[1,.8,.4]];

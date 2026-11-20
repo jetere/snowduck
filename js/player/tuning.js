@@ -1,4 +1,4 @@
-/* Star Hopper 64 - player/tuning */
+/* Snowduck - player/tuning */
 // ---------- movement tuning + gamepad
 const MV={run:10,sprint:1.5,accel:11,friction:11,air:3.5,turn:14,grav:38,term:45,j1:13,j2:15.5,j3:20.5,chain:.3,coyote:.1,buffer:.12,varJump:1,airJumps:0,glide:0,glideFall:3,ljS:17,ljV:10,bfH:17,wkV:15,wkS:9,wkWin:.15,pound:34,poundWind:.3,animSpd:1.8,animSync:0},MD={...MV};
 const GP={jump:0,cr:0,spr:0,mx:0,my:0};

@@ -1,4 +1,4 @@
-/* Star Hopper 64 - levels/levels */
+/* Snowduck - levels/levels */
 // ---------- new levels: three sky courses reached through glowing portal rings on the island
 const LV={cur:0,cd:0,floor:0,rings:[]},LS=[null];
 const lvBox=(x,y,z,w,h,d,c)=>{box(x,y,z,w,h,d,c,checker);const m=scene.children[scene.children.length-1];m.castShadow=m.receiveShadow=true};

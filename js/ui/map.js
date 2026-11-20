@@ -1,4 +1,4 @@
-/* Star Hopper 64 - ui/map */
+/* Snowduck - ui/map */
 // ---------- island map: rotating minimap (bottom-left) + full north-up map (N key / 🗺 button)
 const MK=2,MR=130,mapT=document.createElement('canvas');mapT.width=mapT.height=MR*2*MK;
 {const x=mapT.getContext('2d'),im=x.createImageData(mapT.width,mapT.height),d=im.data,n=mapT.width;

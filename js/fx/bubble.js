@@ -1,4 +1,4 @@
-/* Star Hopper 64 - fx/bubble */
+/* Snowduck - fx/bubble */
 // ---------- impact bubble (black-hole shader port: fresnel rim, accretion glow, SDF-noise dissolve, ripple) + screen lens + smoke (smoke shader port)
 const BLC={on:1,size:.45,dur:1,distort:.16,glow:1.2,width:3,ns:3,ripple:1,r:1,g:.6,b:.2},SMK={on:1,count:.1,size:.35,life:1,alpha:1,vs:3,vsp:1,emis:1,heat:1,r:.75,g:.72,b:.8};
 const BLF=`uniform float time,ph,inten,acc,accw,ns,rip;uniform vec3 ac,rc;varying vec3 vN,vV,vO,vW;

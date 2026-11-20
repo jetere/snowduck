@@ -1,4 +1,4 @@
-/* Star Hopper 64 - core/scene */
+/* Snowduck - core/scene */
 // ---------- renderer & scene
 const renderer=new THREE.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(innerWidth,innerHeight);renderer.domElement.id='game';document.body.prepend(renderer.domElement);
 const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,.3,600);

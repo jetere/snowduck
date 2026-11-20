@@ -1,4 +1,4 @@
-/* Star Hopper 64 - core/input (keyboard, mouse, pointer lock) */
+/* Snowduck - core/input (keyboard, mouse, pointer lock) */
 // ---------- input state
 const keys = {};
 let yaw = 0, pitch = .4, started = false, locked = false, drag = false, shake = 0;

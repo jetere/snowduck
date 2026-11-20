@@ -1,4 +1,4 @@
-/* Star Hopper 64 - core/util */
+/* Snowduck - core/util */
 window.onerror=(m,s,l)=>{const o=document.getElementById('ov');o.style.display='flex';o.innerHTML='<div><h1>Oops</h1><p>'+m+' (line '+l+')</p></div>'};
 const $=id=>document.getElementById(id),S=(a,b,x)=>{const t=Math.max(0,Math.min(1,(x-a)/(b-a)));return t*t*(3-2*t)};
 const CX=-30,CZ=-35,IX=98,IZ=92;

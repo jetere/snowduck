@@ -1,4 +1,4 @@
-/* Star Hopper 64 - world/collectibles */
+/* Snowduck - world/collectibles */
 // ---------- collectibles
 const coins=[],cg=new THREE.CylinderGeometry(.45,.45,.12,12).rotateX(Math.PI/2),cy=LM(0xffd21f),cr=LM(0xff2a2a);cy.emissive=new THREE.Color(0x7a5a00);cr.emissive=new THREE.Color(0x7a0000);
 function coin(x,y,z,red){const m=new THREE.Mesh(cg,red?cr:cy);m.position.set(x,y,z);if(red)m.scale.setScalar(1.5);scene.add(m);coins.push({m,red})}

@@ -58,7 +58,7 @@ The scripts share one global scope and load in order. When you add a file, list 
 
 ## Settings
 
-Press **P** to change the look and feel while playing. Your choices are saved in the browser under `starhopper64.settings.v5`.
+Press **P** to change the look and feel while playing. Your choices are saved in the browser under `snowduck.settings.v1`.
 
 | Setting | Default |
 | --- | --- |

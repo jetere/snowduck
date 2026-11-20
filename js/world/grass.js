@@ -1,4 +1,4 @@
-/* Star Hopper 64 - world/grass */
+/* Snowduck - world/grass */
 // ---------- stylized grass (ported from Godot grass shader): billboard tufts, noise-gradient colour, wind
 const gcv=document.createElement('canvas');gcv.width=64;gcv.height=1;{const x=gcv.getContext('2d'),g=x.createLinearGradient(0,0,64,0);g.addColorStop(0,'#1f6b2a');g.addColorStop(.35,'#3fae3a');g.addColorStop(.62,'#8fd14a');g.addColorStop(.8,'#d8e04a');g.addColorStop(.92,'#ff8fb4');g.addColorStop(1,'#fff3a0');x.fillStyle=g;x.fillRect(0,0,64,1)}
 const gradTex=new THREE.CanvasTexture(gcv),gl=[];

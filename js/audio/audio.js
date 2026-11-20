@@ -1,4 +1,4 @@
-/* Star Hopper 64 - audio/audio */
+/* Snowduck - audio/audio */
 // ---------- audio engine (synthesized: FM bells, noise whooshes, reverb, compressor, wind + generative music)
 const AU={master:.8,sfx:1,music:.45,ambient:.5,reverb:.3,musicOn:1,mute:0};
 let actx,mG,sG,musG,ambG,rvG,nbuf;

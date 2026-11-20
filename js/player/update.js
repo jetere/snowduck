@@ -1,4 +1,4 @@
-/* Star Hopper 64 - player/update */
+/* Snowduck - player/update */
 // ---------- update
 function update(dt){const now=performance.now()/1000,K=keys;pollPad(dt,now);if(P.on)P.gT=now;
  const crK=crouchK.some(c=>K[c])||GP.cr;
