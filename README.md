@@ -1,4 +1,4 @@
-# ⭐ Star Hopper 64
+snowduck
 
 A 3D toon platformer made with Three.js. Collect coins, explore the island, take portals to three sky levels, and find all six Power Stars.
 
