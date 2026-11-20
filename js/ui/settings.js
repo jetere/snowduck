@@ -1,7 +1,7 @@
 /* Star Hopper 64 - ui/settings */
 // ---------- shader control panel (⚙ button or P key)
 const SU=post.uniforms,SK=skyMat.uniforms,GU=gm.material.uniforms,CFG={impact:.05,windStr:1,windDir:.5,wobble:1,wobBase:0};
-const CT=[['Wobble & squiggle',[['Strength',0,4,.05,SU.str],['FPS',1,24,1,SU.fps],['Noise scale',4,60,1,SU.sc],['Impact wobble',0,3,.05,CFG,'wobble'],['Constant screen wobble',0,2,.02,CFG,'wobBase']]],
+const CT=[['Wobble & squiggle',[['Strength',0,12,.05,SU.str],['FPS',1,24,1,SU.fps],['Noise scale',4,60,1,SU.sc],['Impact wobble',0,3,.05,CFG,'wobble'],['Constant screen wobble',0,2,.02,CFG,'wobBase']]],
 ['Look',[['Bloom intensity',0,2,.02,SU.bI],['Bloom threshold',.2,1,.01,bzTh],['Glow particles',0,3,.05,ffU.gain],['Outlines',0,1,.01,SU.edge],['Saturation',0,2,.01,SU.sat],['Vignette',0,1,.01,SU.vig],['Chromatic aberration',0,.01,.0002,SU.ca0],['Impact strength',0,2,.05,CFG,'impact']]],
 ['Aurora sky',[['Brightness',0,4,.05,SK.bright],['Speed',0,.6,.01,SK.speed],['Height',10,80,1,SK.height],['Scale',.2,2,.05,SK.scale]]],
 ['Grass',[['Wind strength',0,3,.05,CFG,'windStr'],['Wind direction',0,6.28,.05,CFG,'windDir'],['Wind speed',0,2,.05,GU.wspd],['Wind vertical',0,1,.02,GU.wvert],['Wind tile size',5,60,1,GU.wtile],['Push radius',0,8,.1,GU.crad],['Push strength',0,3,.05,GU.cpush]]]];
@@ -45,7 +45,7 @@ for(const n in PS){const b=document.createElement('button');b.textContent=n;b.on
 for(const n in FZ){const b=document.createElement('button');b.textContent='Fog: '+n;b.onclick=()=>setFog(n);cp.appendChild(b)}
 for(const n in MP){const b=document.createElement('button');b.textContent='Move: '+n;b.onclick=()=>{Object.assign(MV,MD,MP[n]);cpSync();cpSave()};cp.appendChild(b)}
 cp.addEventListener('keydown',e=>e.stopPropagation());cp.addEventListener('keyup',e=>e.stopPropagation());document.body.appendChild(cp);applyWind();
-const CPK='starhopper64.settings.v2';let cpLoaded=false;
+const CPK='starhopper64.settings.v3';let cpLoaded=false;
 function cpSave(){if(!cpLoaded)return;try{const d={};for(const c of cpAll)if(!c.key.startsWith('Fog & light'))d[c.key]=+c.o[c.k];localStorage.setItem(CPK,JSON.stringify(d))}catch(e){}}
 try{const d=JSON.parse(localStorage.getItem(CPK)||'null');if(d)for(const c of cpAll)if(c.key in d&&isFinite(d[c.key]))c.o[c.k]=d[c.key]}catch(e){}
 cpLoaded=true;cpSync();

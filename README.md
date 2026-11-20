@@ -79,9 +79,9 @@ The visual defaults live in the shader/effect modules and can still be changed l
 | Saturation | 1.4 |
 | Chromatic aberration | 0.01 (max) |
 | Impact strength | 0.05 |
-| Wobble strength | 0.24 |
+| Wobble strength | 10 |
 | Wobble FPS | 12 |
-| Noise scale | 14 |
+| Noise scale | 35 |
 | Walk animation speed | 1.80 |
 | Flutter glide | off |
 | Aurora brightness / speed | 1.80 / 0.42 |
@@ -89,7 +89,7 @@ The visual defaults live in the shader/effect modules and can still be changed l
 | Smoke amount / size | 0.10 / 0.35 |
 | Impact bubble size / screen distortion | 0.45 / 0.16 |
 
-Saved settings use the `starhopper64.settings.v2` key.
+Saved settings use the `starhopper64.settings.v3` key.
 
 ## Run locally
 
