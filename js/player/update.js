@@ -1,13 +1,13 @@
 /* Star Hopper 64 - player/update */
 // ---------- update
 function update(dt){const now=performance.now()/1000,K=keys;pollPad(dt,now);if(P.on)P.gT=now;
- const crK=crouchK.some(c=>K[c])||tcr||GP.cr;
- let f=(K.KeyW||K.ArrowUp?1:0)-(K.KeyS||K.ArrowDown?1:0)-T.my-GP.my,r=(K.KeyD?1:0)-(K.KeyA?1:0)+T.mx+GP.mx;if(K.ArrowLeft||K.KeyQ){yaw+=dt*CC.keyRot;CAM.lastIn=now}if(K.ArrowRight||K.KeyE){yaw-=dt*CC.keyRot;CAM.lastIn=now}if(CAM.shot&&CAM.shot.lock){f=0;r=0;P.jb=-9}
+ const crK=crouchK.some(c=>K[c])||GP.cr;
+ let f=(K.KeyW||K.ArrowUp?1:0)-(K.KeyS||K.ArrowDown?1:0)-GP.my,r=(K.KeyD?1:0)-(K.KeyA?1:0)+GP.mx;if(K.ArrowLeft||K.KeyQ){yaw+=dt*CC.keyRot;CAM.lastIn=now}if(K.ArrowRight||K.KeyE){yaw-=dt*CC.keyRot;CAM.lastIn=now}if(CAM.shot&&CAM.shot.lock){f=0;r=0;P.jb=-9}
  let dx=-Math.sin(yaw)*f+Math.cos(yaw)*r,dz=-Math.cos(yaw)*f-Math.sin(yaw)*r;const hl=Math.hypot(dx,dz),mg=Math.min(1,hl),ux=hl?dx/hl*mg:0,uz=hl?dz/hl*mg:0;
  if(P.mode==='pound'){P.mt-=dt;P.vx=P.vz=0;P.vy=P.mt>0?0:-MV.pound;body.rotation.y+=dt*22;if(P.mt<=0){SL.acc+=dt;if(SL.acc>.045){SL.acc=0;slash('dash',P.y+.9)}}}
  else if(P.mode==='plant'){P.mt-=dt;P.vx=P.vz=0;if(P.mt<=0)P.mode=''}
  else{const crouching=P.on&&crK;
-  if(!(P.mode==='long'&&!P.on)){const k=Math.min(1,dt*(P.on?(mg>.1?MV.accel:MV.friction):MV.air)),spd=MV.run*(((K.KeyX||GP.spr||T.spr)&&MV.sprint>1)?MV.sprint:1)*AN.spd;P.vx+=((crouching?0:ux*spd)-P.vx)*k;P.vz+=((crouching?0:uz*spd)-P.vz)*k}
+  if(!(P.mode==='long'&&!P.on)){const k=Math.min(1,dt*(P.on?(mg>.1?MV.accel:MV.friction):MV.air)),spd=MV.run*(((K.KeyX||GP.spr)&&MV.sprint>1)?MV.sprint:1)*AN.spd;P.vx+=((crouching?0:ux*spd)-P.vx)*k;P.vz+=((crouching?0:uz*spd)-P.vz)*k}
   if(P.mode!=='long'&&mg>.1)P.face=lerpA(P.face,Math.atan2(ux,uz),Math.min(1,dt*MV.turn));
   if(now-P.jb<MV.buffer){
    if(P.on||(now-P.gT<MV.coyote&&P.vy<=0&&P.mode==='')){P.jb=-9;const sp=Math.hypot(P.vx,P.vz);P.fa=0;
@@ -18,7 +18,7 @@ function update(dt){const now=performance.now()/1000,K=keys;pollPad(dt,now);if(P
    else if(now-P.wallT<MV.wkWin){P.aj=0;P.vy=MV.wkV;P.vx=P.wn[0]*MV.wkS;P.vz=P.wn[1]*MV.wkS;P.face=Math.atan2(P.wn[0],P.wn[1]);P.mode='';P.wallT=-9;P.jb=-9;P.chain=0;SFX.wall();impact(.3,.4);slash('wall');burst(P.x,P.y+1,P.z,10,4);FX.sv=6}
    else if(P.aj<MV.airJumps&&P.mode===''){P.aj++;P.jb=-9;P.vy=MV.j2;P.flip=1;P.fd=1;SFX.air();burst(P.x,P.y+.5,P.z,8,3,[.8,.9,1]);FX.sv=6}}
   P.vy-=MV.grav*dt}
- if(P.mode==='pound'&&P.mt>0)P.vy=0;P.vy=Math.max(P.vy,-MV.term);{const gl=!!(MV.glide&&!P.on&&P.mode===''&&P.vy<0&&(K.Space||tA||GP.jump));if(gl){P.vy=Math.max(P.vy,-MV.glideFall);if(!P.glp)SFX.glide()}P.gl=P.glp=gl}
+ if(P.mode==='pound'&&P.mt>0)P.vy=0;P.vy=Math.max(P.vy,-MV.term);{const gl=!!(MV.glide&&!P.on&&P.mode===''&&P.vy<0&&(K.Space||GP.jump));if(gl){P.vy=Math.max(P.vy,-MV.glideFall);if(!P.glp)SFX.glide()}P.gl=P.glp=gl}
  for(const ax of[0,1]){const nx=ax?P.x:P.x+P.vx*dt,nz=ax?P.z+P.vz*dt:P.z,b=blk(nx,nz);if(b){P.wn=b;if(!P.on)P.wallT=now;ax?P.vz=0:P.vx=0}else{P.x=nx;P.z=nz}}
  {const WB=LV.cur?400:130;P.x=Math.max(-WB,Math.min(WB,P.x));P.z=Math.max(-WB,Math.min(WB,P.z))}
  const gy=gY(P.x,P.z,P.y);let ny=P.y+P.vy*dt;

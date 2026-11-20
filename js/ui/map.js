@@ -14,7 +14,7 @@ const MK=2,MR=130,mapT=document.createElement('canvas');mapT.width=mapT.height=M
  for(const[sx,sz]of[[-8,-1],[8,-1],[-8,-11],[8,-11]]){q=P2(sx-2,sz-2);x.fillStyle=sz<-5?'#d8332b':'#f6e9c6';x.fillRect(q[0],q[1],4*MK,4*MK)}
  x.strokeStyle='rgba(60,40,20,.6)';x.lineWidth=1;q=P2(-8,-11);x.strokeRect(q[0],q[1],16*MK,10*MK);
  for(let i=0;i<PL.length;i++){q=P2(PL[i][0]-2.5,PL[i][2]-2.5);x.fillStyle=['#ff9d2e','#35c4e8','#ff5fa2','#a5e13a'][i%4];x.fillRect(q[0],q[1],5*MK,5*MK)}}
-const mmS=150,mm=document.createElement('canvas'),mmX=mm.getContext('2d'),PRm=Math.min(devicePixelRatio,2);mm.width=mm.height=mmS*PRm;mm.id='minimap';
+const mmS=150,mm=document.createElement('canvas'),mmX=mm.getContext('2d'),PRm=Math.min(devicePixelRatio,2);mm.width=mm.height=mmS*PRm;
 mm.style.cssText='position:fixed;left:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);width:'+mmS+'px;height:'+mmS+'px;z-index:10;pointer-events:none;display:none;border-radius:50%;box-shadow:0 0 0 3px #ffe14d,0 4px 14px rgba(0,0,0,.5)';document.body.appendChild(mm);
 const bg=document.createElement('div');bg.style.cssText='position:fixed;inset:0;z-index:25;display:none;align-items:center;justify-content:center;flex-direction:column;background:rgba(10,20,50,.8);cursor:pointer;font:700 15px Trebuchet MS,sans-serif;color:#fff';
 const bgC=document.createElement('canvas');bgC.style.cssText='border:3px solid #ffe14d;border-radius:14px;background:#4aa8e8';

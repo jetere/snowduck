@@ -1,6 +1,6 @@
 /* Star Hopper 64 - fx/trail */
 // ---------- ghost trail (port of CompositorEffectGhostTrail): fading additive after-images driven by velocity
-const TRN=26,TR={on:1,gain:50,len:.9,r:.15,g:.5,b:1},tH=[];for(let i=0;i<TRN;i++)tH.push({x:0,y:-99,z:0,s:0,t:-9,sx:1,sy:1});
+const TRN=26,TR={on:1,gain:12,len:.21,r:1,g:1,b:1},tH=[];for(let i=0;i<TRN;i++)tH.push({x:0,y:-99,z:0,s:0,t:-9,sx:1,sy:1});
 const tAge=new THREE.InstancedBufferAttribute(new Float32Array(TRN*2).fill(1),1),tGeo=new THREE.SphereGeometry(1,14,10);tGeo.setAttribute('age',tAge);
 const tMat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{col:{value:new THREE.Color(.15,.5,1)},gain:{value:1}},
 vertexShader:'attribute float age;varying float vA;varying vec3 vN,vV;void main(){vA=age;vec4 mv=modelViewMatrix*instanceMatrix*vec4(position,1.);vN=normalize(normalMatrix*mat3(instanceMatrix)*normal);vV=normalize(-mv.xyz);gl_Position=projectionMatrix*mv;}',

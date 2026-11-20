@@ -1,10 +1,8 @@
-/* Star Hopper 64 - core/input (keyboard, mouse, pointer lock). Touch controls live in js/mobile.js */
+/* Star Hopper 64 - core/input (keyboard, mouse, pointer lock) */
 // ---------- input state
 const keys = {};
-let yaw = 0, pitch = .4, started = false, locked = false, drag = false, tcr = false, shake = 0;
-// T is the shared virtual-input state filled by the on-screen controller (mobile.js)
-const T = { mx: 0, my: 0, spr: false }, cvs = renderer.domElement, crouchK = ['ShiftLeft', 'ShiftRight', 'KeyZ', 'KeyC'];
-let tA = false;
+let yaw = 0, pitch = .4, started = false, locked = false, drag = false, shake = 0;
+const cvs = renderer.domElement, crouchK = ['ShiftLeft', 'ShiftRight', 'KeyZ', 'KeyC'];
 
 function pound() {
   if (started && !P.on && P.mode !== 'pound') {
@@ -31,7 +29,7 @@ const look = (dx, dy, s) => {
   yaw -= dx * s * CC.sens;
   pitch = Math.max(.05, Math.min(1.25, pitch + dy * s * .8 * CC.sens * (CC.invY ? -1 : 1)))
 };
-['keydown', 'mousedown', 'touchstart', 'mousemove', 'pointerdown', 'pointermove'].forEach(e => addEventListener(e, () => CAM.lastAct = performance.now() / 1000, { passive: true }));
+['keydown', 'mousedown', 'touchstart', 'mousemove'].forEach(e => addEventListener(e, () => CAM.lastAct = performance.now() / 1000, { passive: true }));
 addEventListener('mousemove', e => { if (locked || drag) look(e.movementX, e.movementY, .0035) });
 cvs.addEventListener('mousedown', () => drag = true);
 addEventListener('mouseup', () => drag = false);

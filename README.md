@@ -6,23 +6,26 @@ The game is a single-page static site — no build step, no dependencies to inst
 
 ## Play
 
-- **Desktop:** WASD / arrows to run, mouse or Q/E for the camera, **X** sprint, **Space** jump (chain three for a triple jump, hold in the air to flutter-glide), **Shift/Z** crouch (long jump / backflip / ground pound), **V** director camera, **F** fog, **N** map, **M** mute, **R** respawn, **P** settings.
-- **Mobile:** floating left thumb-stick to move, drag the right side to look, **A** jump (hold to glide), **B** crouch / ground-pound, **X** sprint, **↺** respawn.
-- **Gamepad:** left stick run, right stick look, A jump, B/X crouch, trigger sprint.
+- **Move:** WASD / arrow keys
+- **Camera:** mouse drag, or Q/E to turn
+- **Jump:** Space (chain three for a triple jump)
+- **Crouch:** Shift or Z — crouch + jump while running is a long jump, standing is a backflip; in the air it is a ground pound. Jump into a wall to wall-kick.
+- **Sprint:** X
+- **Other:** V director camera · F fog · N map · M mute · R respawn · P settings
+- **Gamepad:** left stick run, right stick look, A jump, B/X crouch, trigger sprint
 
 ## Project layout
 
 ```
 index.html               markup + ordered script list
-css/style.css            HUD, title screen, on-screen controller
-manifest.webmanifest     installable "app" metadata
-assets/icon.svg          favicon / home-screen icon
+css/style.css            HUD and title screen
+assets/icon.svg          favicon
 
 js/
   core/
     util.js              helpers + terrain height function TH(x, z)
     scene.js             renderer, camera, lights, toon materials
-    input.js             keyboard, mouse, pointer lock, shared input state
+    input.js             keyboard, mouse, pointer lock
   world/
     terrain.js           vertex-coloured island mesh
     water.js             toon ocean + rivers + waterfalls
@@ -56,13 +59,37 @@ js/
     map.js               rotating minimap + full island map
   levels/
     levels.js            portal rings, Sakura Isle, the three sky levels
-  mobile.js              on-screen touch controller
   boot.js                starts the render loop
 
 vendor/three.min.js      Three.js r128 (MIT), vendored so the site works offline
 ```
 
 Script order in `index.html` matters: the game is written as classic scripts that share one global scope, split by feature. Add a new file after the features it depends on.
+
+## Default look
+
+The visual defaults live in the shader/effect modules and can still be changed live with **P**:
+
+| Setting | Value |
+| --- | --- |
+| Bloom intensity | 0.22 |
+| Glow particles | 2.24 |
+| Outlines | 1 |
+| Vignette | 1 |
+| Saturation | 1.4 |
+| Chromatic aberration | 0.01 (max) |
+| Impact strength | 0.05 |
+| Wobble strength | 0.24 |
+| Wobble FPS | 12 |
+| Noise scale | 14 |
+| Walk animation speed | 1.80 |
+| Flutter glide | off |
+| Aurora brightness / speed | 1.80 / 0.42 |
+| Ghost trail gain / length / RGB | 12 / 0.21 / 1,1,1 |
+| Smoke amount / size | 0.10 / 0.35 |
+| Impact bubble size / screen distortion | 0.45 / 0.16 |
+
+Saved settings use the `starhopper64.settings.v2` key.
 
 ## Run locally
 
@@ -75,8 +102,6 @@ python -m http.server 8080
 ```
 
 Then open <http://localhost:8080>. Opening `index.html` directly with `file://` also works.
-
-Force the touch controller on a desktop browser with `?touch=1`.
 
 ## Deploy
 
