@@ -1,0 +1,59 @@
+:root{--ink:#fff;--panel:rgba(10,20,50,.7);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#fff}}
+:root[data-theme="dark"]{--ink:#fff}
+html,body{height:100%;margin:0;background:#8cd0ff;overflow:hidden;font-family:"Trebuchet MS",Verdana,sans-serif;color:var(--ink);touch-action:none;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+#game{position:fixed;inset:0;width:100%;height:100%;display:block}
+#hud{position:fixed;left:14px;top:calc(env(safe-area-inset-top,0px) + 10px);font-size:26px;font-weight:900;text-shadow:2px 2px 0 #000,-1px -1px 0 #000,2px -1px 0 #000,-1px 2px 0 #000;pointer-events:none;line-height:1.3}
+#hud span{color:#ffe14d}
+#msg{position:fixed;left:0;right:0;top:30%;text-align:center;font-size:44px;font-weight:900;color:#ffe14d;text-shadow:3px 3px 0 #b8500a,-2px -2px 0 #000,3px -2px 0 #000;pointer-events:none;opacity:0;transition:opacity .3s;padding:0 12px}
+#ov{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(20,60,140,.45);cursor:pointer;z-index:40;padding:16px;box-sizing:border-box}
+#ov div{background:var(--panel);padding:24px 34px;border-radius:16px;text-align:center;max-width:440px;max-height:92vh;overflow:auto;line-height:1.55;border:3px solid #ffe14d;box-sizing:border-box}
+#ov h1{margin:0 0 6px;font-size:36px;color:#ffe14d;text-shadow:3px 3px 0 #b8500a}
+#ov small{opacity:.92}
+#ov b{color:#ffe14d}
+.bar{position:fixed;left:0;right:0;height:0;background:#000;z-index:20;transition:height .6s ease;pointer-events:none}
+/* ---------- mobile controller (js/mobile.js adds body.touch) */
+.tui{display:none}
+.touch .tui{display:block}
+.touch:not(.playing) .tui{display:none}
+#moveZone{position:fixed;left:0;bottom:0;width:50%;height:76%;z-index:9;touch-action:none;background:transparent}
+#lookZone{position:fixed;right:0;top:0;width:55%;height:100%;z-index:8;touch-action:none;background:transparent}
+#stick{position:fixed;left:102px;top:60%;width:156px;height:156px;margin:0;transform:translate(-50%,-50%);border-radius:50%;z-index:10;pointer-events:none;
+  border:2px solid rgba(255,255,255,.5);background:radial-gradient(circle at 50% 50%,rgba(10,20,50,.22),rgba(10,20,50,.42));
+  box-shadow:0 6px 18px rgba(0,0,0,.25),inset 0 0 22px rgba(255,255,255,.12);opacity:.72;transition:opacity .18s,box-shadow .18s}
+#stick.active{opacity:1;box-shadow:0 8px 26px rgba(0,0,0,.35),inset 0 0 26px rgba(255,225,77,.18)}
+#stickKnob{position:absolute;left:50%;top:50%;width:66px;height:66px;margin:0;transform:translate(-50%,-50%);border-radius:50%;
+  border:3px solid rgba(255,255,255,.85);background:rgba(255,255,255,.32);box-shadow:0 2px 10px rgba(0,0,0,.35);will-change:transform}
+#touchBtns{position:fixed;inset:0;z-index:12;pointer-events:none}
+.tbtn{position:absolute;pointer-events:auto;display:flex;align-items:center;justify-content:center;padding:0;margin:0;
+  border-radius:50%;border:3px solid rgba(255,255,255,.9);color:#fff;font:900 30px/1 "Trebuchet MS",Verdana,sans-serif;
+  background:rgba(10,20,50,.42);box-shadow:0 4px 14px rgba(0,0,0,.35),inset 0 0 16px rgba(255,255,255,.1);
+  text-shadow:2px 2px 0 #000;touch-action:none;transition:transform .07s,background .07s;user-select:none}
+.tbtn.down{transform:scale(.92);background:rgba(255,225,77,.45)}
+#btnA{right:calc(env(safe-area-inset-right,0px) + 26px);bottom:calc(env(safe-area-inset-bottom,0px) + 92px);width:88px;height:88px;border-color:#ffe14d}
+#btnB{right:calc(env(safe-area-inset-right,0px) + 124px);bottom:calc(env(safe-area-inset-bottom,0px) + 34px);width:70px;height:70px;font-size:26px}
+#btnX{right:calc(env(safe-area-inset-right,0px) + 34px);bottom:calc(env(safe-area-inset-bottom,0px) + 196px);width:62px;height:62px;font-size:23px}
+#btnRespawn{right:14px;top:calc(env(safe-area-inset-top,0px) + 64px);width:44px;height:44px;font-size:20px;background:rgba(10,20,50,.75)}
+.touch-only{display:none}
+.touch .touch-only{display:inline}
+.touch .kb-only{display:none}
+/* keep the minimap clear of the left thumb-stick on touch devices */
+.touch #minimap{top:calc(env(safe-area-inset-top,0px) + 98px)!important;bottom:auto!important;left:14px!important;width:116px!important;height:116px!important}
+/* ---------- small screens */
+@media (max-width:700px){
+  #hud{font-size:20px}
+  #msg{font-size:32px}
+  #ov h1{font-size:28px}
+  #ov div{padding:18px 20px;font-size:14px;line-height:1.5}
+}
+@media (max-height:430px){
+  #hud{font-size:17px}
+  #msg{font-size:26px}
+  #ov div{font-size:12px;padding:12px 16px;line-height:1.4}
+  #ov h1{font-size:22px;margin-bottom:2px}
+  #stick{width:132px;height:132px}
+  #stickKnob{width:56px;height:56px}
+  #btnA{width:76px;height:76px;bottom:calc(env(safe-area-inset-bottom,0px) + 78px)}
+  #btnB{width:62px;height:62px;right:calc(env(safe-area-inset-right,0px) + 108px)}
+  #btnX{width:54px;height:54px;bottom:calc(env(safe-area-inset-bottom,0px) + 168px)}
+}

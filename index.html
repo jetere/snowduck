@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#2f86e8">
+<meta name="description" content="Star Hopper 64 - a 3D toon platformer. Grab coins, climb the castle, ride portal rings to sky levels and collect the Power Stars.">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Star Hopper 64">
+<title>Star Hopper 64</title>
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="hud">🪙 <span id="co">0</span><br>⭐ <span id="st">0</span>/6 &nbsp; 🔴 <span id="rc">0</span>/8</div>
+<div id="msg"></div>
+<div class="bar" id="bt" style="top:0"></div>
+<div class="bar" id="bb" style="bottom:0"></div>
+
+<div id="ov">
+  <div>
+    <h1>STAR HOPPER 64</h1>
+    <p>Grab coins, climb the castle, spiral up the mountain and snag the Power Stars! Three glowing portal rings near the start lead to <b>sky levels</b>, and a stepping-stone path east leads to <b>Sakura Isle</b>.</p>
+    <small class="kb-only">
+      WASD / Arrows – run &nbsp;·&nbsp; Mouse or Q/E – camera &nbsp;·&nbsp; <b>X</b> – sprint<br>
+      <b>Space</b> – jump (chain 3 for a <b>triple jump</b>) · <b>hold Space</b> in the air to flutter-glide<br>
+      <b>Shift/Z</b> – crouch: + jump while running = <b>long jump</b>, standing = <b>backflip</b><br>
+      <b>Shift/Z in the air</b> – ground pound · jump on a wall = wall kick<br>
+      <b>V</b> – director camera · <b>F</b> – Silent Hill fog · <b>N</b> – map · <b>M</b> – mute · <b>R</b> – respawn · <b>P</b> – settings<br>
+      Gamepad: stick run, right stick look, A jump, B/X crouch, trigger sprint
+    </small>
+    <small class="touch-only">
+      <b>Left thumb</b> – move &nbsp;·&nbsp; <b>drag right side</b> – look<br>
+      <b>A</b> – jump (tap 3× for a triple jump, <b>hold</b> in the air to glide)<br>
+      <b>B</b> – hold to crouch (jump while running = <b>long jump</b>), tap in the air to ground-pound<br>
+      <b>X</b> – sprint &nbsp;·&nbsp; <b>↺</b> – respawn &nbsp;·&nbsp; 🗺 map &nbsp;·&nbsp; 🎬 camera &nbsp;·&nbsp; ⚙ settings
+    </small>
+    <p><b>Click or tap to play</b></p>
+  </div>
+</div>
+
+<!-- on-screen controller (shown by js/mobile.js on touch devices) -->
+<div id="moveZone" class="tui"></div>
+<div id="lookZone" class="tui"></div>
+<div id="stick" class="tui"><div id="stickKnob"></div></div>
+<div id="touchBtns" class="tui">
+  <button class="tbtn" id="btnA" aria-label="Jump">A</button>
+  <button class="tbtn" id="btnB" aria-label="Crouch / ground pound">B</button>
+  <button class="tbtn" id="btnX" aria-label="Sprint">X</button>
+  <button class="tbtn" id="btnRespawn" aria-label="Respawn">↺</button>
+</div>
+
+<script src="vendor/three.min.js" defer></script>
+<script src="js/core/util.js" defer></script>
+<script src="js/core/scene.js" defer></script>
+<script src="js/world/terrain.js" defer></script>
+<script src="js/world/water.js" defer></script>
+<script src="js/world/castle.js" defer></script>
+<script src="js/world/decor.js" defer></script>
+<script src="js/world/hero.js" defer></script>
+<script src="js/world/collectibles.js" defer></script>
+<script src="js/fx/shadows.js" defer></script>
+<script src="js/fx/post.js" defer></script>
+<script src="js/fx/bloom.js" defer></script>
+<script src="js/fx/fireflies.js" defer></script>
+<script src="js/fx/impact.js" defer></script>
+<script src="js/world/grass.js" defer></script>
+<script src="js/world/sky.js" defer></script>
+<script src="js/fx/trail.js" defer></script>
+<script src="js/fx/slash.js" defer></script>
+<script src="js/fx/bubble.js" defer></script>
+<script src="js/player/physics.js" defer></script>
+<script src="js/core/input.js" defer></script>
+<script src="js/ui/hud.js" defer></script>
+<script src="js/audio/audio.js" defer></script>
+<script src="js/player/tuning.js" defer></script>
+<script src="js/camera/director.js" defer></script>
+<script src="js/player/update.js" defer></script>
+<script src="js/player/frame.js" defer></script>
+<script src="js/ui/settings.js" defer></script>
+<script src="js/levels/levels.js" defer></script>
+<script src="js/ui/map.js" defer></script>
+<script src="js/mobile.js" defer></script>
+<script src="js/boot.js" defer></script>
+</body>
+</html>
