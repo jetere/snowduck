@@ -1,112 +1,75 @@
 # ⭐ Star Hopper 64
 
-A 3D toon platformer built with Three.js. Grab coins, climb the castle, spiral up Star Mountain, ride the portal rings to three sky levels and collect all six Power Stars.
+A 3D toon platformer made with Three.js. Collect coins, explore the island, take portals to three sky levels, and find all six Power Stars.
 
-The game is a single-page static site — no build step, no dependencies to install.
+**Play online:** https://jetere.github.io/snowduck/
 
-## Play
+No build step. No install. It runs in any modern browser.
 
-- **Move:** WASD / arrow keys
-- **Camera:** mouse drag, or Q/E to turn
-- **Jump:** Space (chain three for a triple jump)
-- **Crouch:** Shift or Z — crouch + jump while running is a long jump, standing is a backflip; in the air it is a ground pound. Jump into a wall to wall-kick.
-- **Sprint:** X
-- **Other:** V director camera · F fog · N map · M mute · R respawn · P settings
-- **Gamepad:** left stick run, right stick look, A jump, B/X crouch, trigger sprint
+## Controls
 
-## Project layout
-
-```
-index.html               markup + ordered script list
-css/style.css            HUD and title screen
-assets/icon.svg          favicon
-
-js/
-  core/
-    util.js              helpers + terrain height function TH(x, z)
-    scene.js             renderer, camera, lights, toon materials
-    input.js             keyboard, mouse, pointer lock
-  world/
-    terrain.js           vertex-coloured island mesh
-    water.js             toon ocean + rivers + waterfalls
-    castle.js            solid box helper (BX) and castle layout
-    decor.js             trees and clouds
-    hero.js              Quackman the snowman-duck
-    collectibles.js      coins and Power Stars
-    grass.js             instanced grass shader
-    sky.js               aurora sky shader
-  fx/
-    shadows.js           shadow flags
-    post.js              squiggle / outline / AO post-process
-    bloom.js             four-level bloom chain
-    fireflies.js         glowing pollen particles
-    impact.js            shockwave, particles, coin popups
-    trail.js             ghost trail
-    slash.js             toon slash arcs
-    bubble.js            impact bubble + smoke
-  player/
-    physics.js           player state and collision helpers
-    tuning.js            movement tuning + gamepad polling
-    update.js            per-frame gameplay update
-    frame.js             render loop + resize handling
-  camera/
-    director.js          follow camera, cinematic shots, letterbox
-  audio/
-    audio.js             synthesised SFX, ambience and music
-  ui/
-    hud.js               respawn, banners, HUD counters
-    settings.js          live settings panel (movement, camera, audio, shaders)
-    map.js               rotating minimap + full island map
-  levels/
-    levels.js            portal rings, Sakura Isle, the three sky levels
-  boot.js                starts the render loop
-
-vendor/three.min.js      Three.js r128 (MIT), vendored so the site works offline
-```
-
-Script order in `index.html` matters: the game is written as classic scripts that share one global scope, split by feature. Add a new file after the features it depends on.
-
-## Default look
-
-The visual defaults live in the shader/effect modules and can still be changed live with **P**:
-
-| Setting | Value |
+| Action | Keys |
 | --- | --- |
-| Bloom intensity | 0.22 |
-| Glow particles | 2.24 |
-| Outlines | 1 |
-| Vignette | 1 |
-| Saturation | 1.4 |
-| Chromatic aberration | 0.01 (max) |
-| Impact strength | 0.05 |
-| Wobble strength | 10 |
-| Wobble FPS | 12 |
-| Noise scale | 35 |
-| Walk animation speed | 1.80 |
-| Flutter glide | off |
-| Aurora brightness / speed | 1.80 / 0.42 |
-| Ghost trail gain / length / RGB | 12 / 0.21 / 1,1,1 |
-| Smoke amount / size | 0.10 / 0.35 |
-| Impact bubble size / screen distortion | 0.45 / 0.16 |
+| Move | WASD or arrow keys |
+| Camera | Mouse drag, or Q / E |
+| Jump | Space (press three times in a row for a triple jump) |
+| Crouch | Shift or Z |
+| Sprint | X |
+| Wall kick | Jump into a wall |
+| Respawn | R |
+| Map | N |
+| Settings | P |
+| Fog / Director camera / Mute | F / V / M |
 
-Saved settings use the `starhopper64.settings.v3` key.
+**Moves:** crouch and jump while running for a long jump. Crouch and jump while standing for a backflip. Crouch in the air for a ground pound.
+
+**Gamepad:** left stick to move, right stick to look, A to jump, B or X to crouch, trigger to sprint.
 
 ## Run locally
 
-Any static file server works, for example:
+Use any static file server:
 
 ```bash
-npx serve .
-# or
 python -m http.server 8080
 ```
 
-Then open <http://localhost:8080>. Opening `index.html` directly with `file://` also works.
+Then open <http://localhost:8080>. You can also open `index.html` directly.
+
+## Project structure
+
+```
+index.html      page and script list
+css/            styles
+assets/         icon
+vendor/         Three.js r128 (works offline)
+js/
+  core/         helpers, terrain height, scene, input
+  world/        terrain, water, castle, trees, hero, coins, grass, sky
+  fx/           post-processing, bloom, particles, trails
+  player/       physics, movement tuning, update loop
+  camera/       follow camera and cinematic shots
+  audio/        sound effects and music
+  ui/           HUD, settings panel, map
+  levels/       portals, Sakura Isle, sky levels
+  boot.js       starts the game
+```
+
+The scripts share one global scope and load in order. When you add a file, list it after the files it depends on.
+
+## Settings
+
+Press **P** to change the look and feel while playing. Your choices are saved in the browser under `starhopper64.settings.v4`.
+
+| Setting | Default |
+| --- | --- |
+| Bloom intensity | 0.06 |
+| Glow particles | 2.24 |
+| Saturation | 1.4 |
+| Wobble strength / FPS | 10 / 12 |
+| Wobble noise scale | 35 |
+| Walk animation speed | 1.8 |
+| Aurora brightness / speed | 1.8 / 0.42 |
 
 ## Deploy
 
-The site is hosted with GitHub Pages from the `main` branch root:
-
-<https://jetere.github.io/snowduck/>
-
-Pushing to `main` publishes the update automatically.
+GitHub Pages serves the `main` branch. Push to `main` and the site updates automatically.

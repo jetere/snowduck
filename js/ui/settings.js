@@ -45,7 +45,7 @@ for(const n in PS){const b=document.createElement('button');b.textContent=n;b.on
 for(const n in FZ){const b=document.createElement('button');b.textContent='Fog: '+n;b.onclick=()=>setFog(n);cp.appendChild(b)}
 for(const n in MP){const b=document.createElement('button');b.textContent='Move: '+n;b.onclick=()=>{Object.assign(MV,MD,MP[n]);cpSync();cpSave()};cp.appendChild(b)}
 cp.addEventListener('keydown',e=>e.stopPropagation());cp.addEventListener('keyup',e=>e.stopPropagation());document.body.appendChild(cp);applyWind();
-const CPK='starhopper64.settings.v3';let cpLoaded=false;
+const CPK='starhopper64.settings.v4';let cpLoaded=false;
 function cpSave(){if(!cpLoaded)return;try{const d={};for(const c of cpAll)if(!c.key.startsWith('Fog & light'))d[c.key]=+c.o[c.k];localStorage.setItem(CPK,JSON.stringify(d))}catch(e){}}
 try{const d=JSON.parse(localStorage.getItem(CPK)||'null');if(d)for(const c of cpAll)if(c.key in d&&isFinite(d[c.key]))c.o[c.k]=d[c.key]}catch(e){}
 cpLoaded=true;cpSync();
